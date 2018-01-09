@@ -1,0 +1,231 @@
+body {
+	background-color: #333333;
+}
+
+#playboard {
+	margin: 5px auto;
+	background-color: #666666;
+	border: 1px solid #000000;
+	height: 410px;
+	width: 410px;
+	position: relative;
+}
+
+#scorearea {
+	position: relative;
+	margin: 0 auto;
+	width: 410px;
+	height: 50px;
+}
+
+#scorearea div {
+	position: absolute;
+	height: 100%;
+	display: block;
+	width: 50%;
+	height: 100%;
+	font-family: arial;
+	font-size: 2em;
+	text-align: center;
+	padding: 10px 0 0 0;
+}
+
+#scorelabel {
+	background-color: #ffffcc;
+	left: 0;
+}
+
+#score {
+	background-color: #ffffcc;
+	left: 50%;
+}
+
+.square {
+	margin: 10px;
+	border: 1px solid #ffffff;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	display: block;
+	border-radius: 5px;
+	box-shadow: 1px 1px 5px black;
+	text-align: center;
+	vertical-align: center;
+	font-size: 1.9em;
+	font-family: arial;
+	cursor: pointer;
+}
+
+#lastscore {
+	z-index: 900;
+	position: absolute;
+	left: 175px;
+	top: 175px;
+	display: block;
+	width: 100px;
+	height: 40px;
+	font-family: arial;
+	font-size: 2em;
+	text-align: center;
+	color: #ffffff;
+	background-color: #666666;
+}
+#message {
+	z-index: 950;
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	display: block;
+	width: 90%;
+	height: 100px;
+	font-family: arial;
+	font-size: 2em;
+	text-align: center;
+	color: #ffffff;
+	background-color: #666666;
+	margin: 0 -50%;
+}
+
+.wild {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e0f3fa+0,d8f0fc+48,b8e2f6+54,b6dffd+100 */
+	background: #e0f3fa; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #e0f3fa 0%, #d8f0fc 48%, #b8e2f6 54%,
+		#b6dffd 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #e0f3fa 0%, #d8f0fc 48%, #b8e2f6 54%,
+		#b6dffd 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #e0f3fa 0%, #d8f0fc 48%, #b8e2f6 54%, #b6dffd
+		100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0f3fa',
+		endColorstr='#b6dffd', GradientType=1);
+	/* IE6-9 fallback on horizontal gradient */
+}
+
+.colorbomb {
+	background: -moz-linear-gradient(-45deg, rgba(89, 89, 89, 0.4) 1%,
+		rgba(221, 221, 221, 0) 51%, rgba(255, 255, 255, 0.25) 64%,
+		rgba(255, 255, 255, 0.74) 90%, rgba(255, 255, 255, 0.85) 96%);
+	background: -webkit-linear-gradient(-45deg, rgba(89, 89, 89, 0.4) 1%,
+		rgba(221, 221, 221, 0) 51%, rgba(255, 255, 255, 0.25) 64%,
+		rgba(255, 255, 255, 0.74) 90%, rgba(255, 255, 255, 0.85) 96%);
+	background: linear-gradient(135deg, rgba(89, 89, 89, 0.4) 1%,
+		rgba(221, 221, 221, 0) 51%, rgba(255, 255, 255, 0.25) 64%,
+		rgba(255, 255, 255, 0.74) 90%, rgba(255, 255, 255, 0.85) 96%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#66595959',
+		endColorstr='#d9ffffff', GradientType=1);
+}
+
+.normal {
+	background: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 1) 10%,
+		rgba(255, 255, 255, 1) 13%, rgba(255, 255, 255, 0.36) 36%,
+		rgba(221, 221, 221, 0) 49%, rgba(89, 89, 89, 0.25) 99%,
+		rgba(89, 89, 89, 0.25) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 1) 10%,
+		rgba(255, 255, 255, 1) 13%, rgba(255, 255, 255, 0.36) 36%,
+		rgba(221, 221, 221, 0) 49%, rgba(89, 89, 89, 0.25) 99%,
+		rgba(89, 89, 89, 0.25) 100%);
+	background: linear-gradient(135deg, rgba(255, 255, 255, 1) 10%,
+		rgba(255, 255, 255, 1) 13%, rgba(255, 255, 255, 0.36) 36%,
+		rgba(221, 221, 221, 0) 49%, rgba(89, 89, 89, 0.25) 99%,
+		rgba(89, 89, 89, 0.25) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff',
+		endColorstr='#40595959', GradientType=1);
+}
+
+.bomb {
+	background: -moz-linear-gradient(-45deg, rgba(224, 88, 67, 0) 1%,
+		rgba(224, 88, 67, 0.41) 42%, rgba(236, 218, 87, 0.5) 51%,
+		rgba(239, 247, 91, 0.48) 53%, rgba(125, 242, 89, 0.41) 60%,
+		rgba(125, 242, 89, 0) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(224, 88, 67, 0) 1%,
+		rgba(224, 88, 67, 0.41) 42%, rgba(236, 218, 87, 0.5) 51%,
+		rgba(239, 247, 91, 0.48) 53%, rgba(125, 242, 89, 0.41) 60%,
+		rgba(125, 242, 89, 0) 100%);
+	background: linear-gradient(135deg, rgba(224, 88, 67, 0) 1%,
+		rgba(224, 88, 67, 0.41) 42%, rgba(236, 218, 87, 0.5) 51%,
+		rgba(239, 247, 91, 0.48) 53%, rgba(125, 242, 89, 0.41) 60%,
+		rgba(125, 242, 89, 0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e05843',
+		endColorstr='#007df259', GradientType=1);
+}
+
+.rock {
+	background: -moz-linear-gradient(-45deg, rgba(240, 183, 161, 1) 0%,
+		rgba(100, 127, 150, 0.59) 28%, rgba(136, 58, 28, 0.3) 48%,
+		rgba(140, 51, 16, 0.35) 50%, rgba(69, 67, 81, 0.65) 63%,
+		rgba(58, 69, 91, 0.67) 65%, rgba(191, 110, 78, 1) 100%);
+	background: -webkit-linear-gradient(-45deg, rgba(240, 183, 161, 1) 0%,
+		rgba(100, 127, 150, 0.59) 28%, rgba(136, 58, 28, 0.3) 48%,
+		rgba(140, 51, 16, 0.35) 50%, rgba(69, 67, 81, 0.65) 63%,
+		rgba(58, 69, 91, 0.67) 65%, rgba(191, 110, 78, 1) 100%);
+	background: linear-gradient(135deg, rgba(240, 183, 161, 1) 0%,
+		rgba(100, 127, 150, 0.59) 28%, rgba(136, 58, 28, 0.3) 48%,
+		rgba(140, 51, 16, 0.35) 50%, rgba(69, 67, 81, 0.65) 63%,
+		rgba(58, 69, 91, 0.67) 65%, rgba(191, 110, 78, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1',
+		endColorstr='#bf6e4e', GradientType=1);
+}
+
+#status {
+	width: 410px;
+	height: 80px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#status div {
+	background-color: #000000;
+	padding: 5px 2px 2px 0px;
+	vertical-align: center;
+	display: block;
+	position: absolute;
+	height: 50%;
+	font-size: 2em;
+	text-align: center;
+}
+
+#level {
+	width: 30%;
+	color: #ff3333;
+	left: 0;
+}
+
+#timer {
+	width: 70%;
+	color: #6666ff;
+	left: 30%;
+}
+
+#remaining {
+	width: 100%;
+	top: 50%;
+	color: #cccc33;
+}
+
+#title {
+	font-size: 2.5em;
+	color: #ffffff;
+	background-color: #000000;
+	text-align: center;
+	width: 410px;
+	margin: 0 auto;
+}
+
+#tagline {
+	font-size: 1em;
+	color: #cccccc;
+	background-color: #000000;
+	text-align: center;
+	width: 410px;
+	margin: 0 auto;
+}
+#help {
+	visibility: hidden;
+	background-color: 909090;
+	display: none;
+	
+}
+#todo {
+	background-color: #ffff00;
+	width: 400px;
+	margin: 0 auto;
+}

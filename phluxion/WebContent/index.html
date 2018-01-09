@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="jquery.color-2.1.2.min.js"></script>
+	<script src="phluxion.js"></script>
+	<script>
+	
+	$( document ).ready(function() {
+		board = $("#playboard");
+		$("#lastscore").hide();
+		puzzle = new Puzzle(10,10);
+		puzzle.start();
+		$("#message").html("Go!").show();
+		$("#message").hide(1000);
+	});
+
+	</script>
+	<link rel="stylesheet" href="phluxion.css">
+</head>
+<body>
+<div id="title">Phluxion (&alpha;)</div>
+<div id="tagline">Collapse blocks of the same color to score points and beat the clock.  By WhosPlayin?</div>
+<div id="scorearea">
+	<div id="scorelabel">Score:</div>
+	<div id="score">0</div>
+</div>
+<div id="playboard">
+	<div id="lastscore"></div>
+	<div id="message"></div>
+</div>
+<div id="status">
+	<div id="level">Level: 1</div>
+	<div id="timer">Time remaining: 0</div>
+	<div id="remaining">Blocks to next level: 0</div>
+</div>
+<div id="help">
+<p>Phluxion is a block game.  Click blocks that are adjacent to at least one other block of the same color to make them
+disappear from the board.  </p>
+<p>The more blocks you disappear at the same time, the more you score.</p>
+<p>Special Blocks:<br>
+Bombs:  A bomb will explode itself and its surrounding neighbors horizontally, vertically, and diagonally.
+In order to use it, you need to click on it directly, or cause it to explode because it's next to another bomb or part of 
+a group of colored blocks that you clicked on.<br>
+Anchors: Anchors are denoted with a "V" and cannot be removed from the board, except by bombs, or by dropping to the bottom row.  They are
+worth 100 points each.
+Color bombs: Color bombs are denoted with an "X" in a colored square.  When you clear that square, it clears all squares
+on the board with that same color.
+Wildcards: Wildcards are shown as a white square with an "O" in them.  These cannot be directly clicked on, but instead are cleared when
+you clear a neighboring colored square.  They stand in for whatever color is clicked.
+Blockers: Blockers have a "*" in a gray square.  They stay put on the board and are only removed by exploding bombs, or if you can get 
+a wildcard next to them and click it.  When a blocker is in position, the pieces above them will not fall down, and 
+the pieces below them will clear out without being replenished.
+</p>
+</div>
+<div id="todo">
+Alpha version to-do list:
+- Don't let blocker stick to top when they first drop in
+- Make blockers go away on level change
+- Add special block to decrease color count
+
+</div>
+</body>
+</html>
